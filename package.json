@@ -1,0 +1,9 @@
+{
+  "name": "toggl-to-bonsai",
+  "version": "0.0.1",
+  "description": "Convert exported Toggl CSVs to Bonsai-ready CSVs",
+  "main": "main.js",
+  "scripts": {},
+  "author": "Jacob Ford <j@cobford.com>",
+  "license": "UNLICENSED"
+}
