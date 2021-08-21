@@ -5,5 +5,8 @@
   "main": "main.js",
   "scripts": {},
   "author": "Jacob Ford <j@cobford.com>",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "csv": "^5.5.0"
+  }
 }
