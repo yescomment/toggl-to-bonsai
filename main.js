@@ -1,6 +1,7 @@
 const parse = require('csv-parse')
 const fs = require('fs')
 const { finished } = require('stream/promises')
+const { timeStrToDecimal } = require('pretty-time-decimal')
 
 const inputFilename = 'togglExportExample.csv'
 const outputFilename = 'bonsaihours.csv'
@@ -14,7 +15,7 @@ const processFile = async () => {
     }))
 
     for await (const row of parser) {
-      // do transformations
+      row['Hours'] = timeStrToDecimal(row['Duration'])
       rows.push(row)
     }
 
