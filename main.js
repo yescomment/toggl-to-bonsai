@@ -6,6 +6,7 @@ const convertTime = require('convert-time')
 
 const inputFilename = 'togglExportExample.csv'
 const outputFilename = 'bonsaihours.csv'
+const MAPPINGS = require('./mappings.json')
 
 const processFile = async () => {
   rows = []
@@ -22,10 +23,31 @@ const processFile = async () => {
       row['Date'] = row['Start date']
       row['Time'] = convertTime(row['Start time'], 'hh:MM A')
 
+      const clientName = normalizeClientName(row['Client'])
+
+      row['Client name'] = clientName
+      row['Client email'] = clientToEmail(clientName)
+
       rows.push(row)
     }
 
     return rows
+}
+
+function normalizeClientName(clientName) {
+  if (MAPPINGS.togglClientToBonsaiClient[clientName] !== undefined) {
+    return MAPPINGS.togglClientToBonsaiClient[clientName]
+  } else {
+    return clientName
+  }
+}
+
+function clientToEmail(clientName) {
+  if (MAPPINGS.togglClientToEmail[clientName] !== undefined) {
+    return MAPPINGS.togglClientToEmail[clientName]
+  } else {
+    return ''
+  }
 }
 
 processFile().then(console.log)
