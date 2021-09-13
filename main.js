@@ -4,7 +4,7 @@ const fs = require('fs')
 const { timeStrToDecimal } = require('pretty-time-decimal')
 const convertTime = require('convert-time')
 
-const inputFile = 'togglExportExample.csv'
+const inputFile = 'togglExport.csv'
 const outputFile = `/Users/jacob/Downloads/bonsaihours-${Date.now()}.csv`
 
 const MAPPINGS = require('./mappings.json')
