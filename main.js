@@ -14,7 +14,8 @@ async function processFile() {
   const parser = fs
     .createReadStream(`${__dirname}/${inputFile}`)
     .pipe(parseCSV({
-      columns: true
+      columns: true,
+      trim: true
     }))
 
     for await (const togglRow of parser) {
