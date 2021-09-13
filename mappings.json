@@ -1,0 +1,13 @@
+{
+  "togglClientToBonsaiClient": {
+    "Brick House": "The Brick House Cooperative"
+  },
+  "togglClientToEmail": {
+    "Anna Waterman": "annawaterman63@gmail.com",
+    "AXIM": "jcampbell@axismsg.com",
+    "The Brick House Cooperative": "invoices@popula.com",
+    "Little Giant Creative": "elias@littlegiantcreative.com",
+    "NYU Gallatin": "cyd.cipolla@nyu.edu",
+    "Open House New York": "ohnyplaceholder@nocomment.llc"
+  }
+}
