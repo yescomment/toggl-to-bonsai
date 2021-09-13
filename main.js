@@ -1,4 +1,4 @@
-const parse = require('csv-parse')
+const parseCSV = require('csv-parse')
 const fs = require('fs')
 const { timeStrToDecimal } = require('pretty-time-decimal')
 const convertTime = require('convert-time')
@@ -11,7 +11,7 @@ const processFile = async () => {
   bonsaiRows = []
   const parser = fs
     .createReadStream(`${__dirname}/${inputFilename}`)
-    .pipe(parse({
+    .pipe(parseCSV({
       columns: true
     }))
 
