@@ -1,6 +1,5 @@
 const parse = require('csv-parse')
 const fs = require('fs')
-const { finished } = require('stream/promises')
 const { timeStrToDecimal } = require('pretty-time-decimal')
 const convertTime = require('convert-time')
 
