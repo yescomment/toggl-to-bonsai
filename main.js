@@ -4,14 +4,15 @@ const fs = require('fs')
 const { timeStrToDecimal } = require('pretty-time-decimal')
 const convertTime = require('convert-time')
 
-const inputFilename = 'togglExportExample.csv'
-const outputFilename = 'bonsaihours.csv'
+const inputFile = 'togglExportExample.csv'
+const outputFile = `/Users/jacob/Downloads/bonsaihours-${Date.now()}.csv`
+
 const MAPPINGS = require('./mappings.json')
 
 async function processFile() {
   bonsaiRows = []
   const parser = fs
-    .createReadStream(`${__dirname}/${inputFilename}`)
+    .createReadStream(`${__dirname}/${inputFile}`)
     .pipe(parseCSV({
       columns: true
     }))
@@ -57,7 +58,7 @@ function clientToEmail(clientName) {
 
 async function writeFile(records) {
   const csv = new writeCSV(records)
-  await csv.toDisk(`./${outputFilename}`, {
+  await csv.toDisk(outputFile, {
     showHeader: true
   })
 }
