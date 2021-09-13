@@ -37,6 +37,8 @@ async function processFile() {
 
       if (togglRow['Tags'].includes('invoiced')) {
         console.log(`Skipping ${togglRow['Client']} entry on ${bonsaiRow['Date']} at ${bonsaiRow['Time']}: tagged as already invoiced`)
+      } else if (bonsaiRow['Client name'] === '' || bonsaiRow['Client email'] === '') {
+        console.log(`Skipping ${togglRow['Client']} entry on ${bonsaiRow['Date']} at ${bonsaiRow['Time']}: no client info`)
       } else {
         bonsaiRows.push(bonsaiRow)
       }
