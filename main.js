@@ -34,7 +34,11 @@ async function processFile() {
       bonsaiRow['Client name'] = clientName
       bonsaiRow['Client email'] = clientToEmail(clientName)
 
-      bonsaiRows.push(bonsaiRow)
+      if (togglRow['Tags'].includes('invoiced')) {
+        console.log(`Skipping ${bonsaiRow['Client name']} on ${bonsaiRow['Date']}: tagged as already invoiced`)
+      } else {
+        bonsaiRows.push(bonsaiRow)
+      }
     }
 
     return bonsaiRows
